@@ -17,3 +17,13 @@ start.addEventListener('click', function () {
         alert("O cronômetro já está funcionando");
     }
 })
+
+reset.addEventListener('click', function () {
+    wm.innerText = 25;
+    ws.innerText = "00";
+    bm.innerText = 5;
+    bs.innerText = "00";
+
+    stopInterval()
+    startTimer = undefined;
+})
