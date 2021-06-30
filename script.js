@@ -42,11 +42,11 @@ function timer() {
     }
 
     if (wm.innerText == 0 && ws.innerText == 0) {
-        if (ws.innerText != 0) {
-            ws.innerText--;
-        } else if (wm.innerText != 0 && ws.innerText == 0) {
-            ws.innerText = 59;
-            wm.innerText--;
+        if (bs.innerText != 0) {
+            bs.innerText--;
+        } else if (bm.innerText != 0 && bs.innerText == 0) {
+            bs.innerText = 59;
+            bm.innerText--;
         }
     }
 
