@@ -9,3 +9,11 @@ var bm = document.getElementById('b_minutes');
 var bs = document.getElementById('b_seconds');
 
 var startTimer;
+
+start.addEventListener('click', function () {
+    if (startTimer === undefined) {
+        startTimer = setInterval(timer, 1000)
+    } else {
+        alert("O cronômetro já está funcionando");
+    }
+})
