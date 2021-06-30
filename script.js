@@ -10,6 +10,9 @@ var bs = document.getElementById('b_seconds');
 
 var startTimer;
 
+var final = new Audio("./audios/audio_final.mp3");
+var volta = new Audio("./audios/audio_volta.mp3");
+
 start.addEventListener('click', function () {
     if (startTimer === undefined) {
         startTimer = setInterval(timer, 1000)
@@ -42,6 +45,7 @@ function timer() {
     }
 
     if (wm.innerText == 0 && ws.innerText == 0) {
+        final.play()
         if (bs.innerText != 0) {
             bs.innerText--;
         } else if (bm.innerText != 0 && bs.innerText == 0) {
@@ -51,6 +55,7 @@ function timer() {
     }
 
     if (wm.innerText == 0 && ws.innerText == 0 && bm.innerText == 0 && bs.innerText == 0) {
+        volta.play()
         wm.innerText = 25;
         ws.innerText = "00";
         bm.innerText = 5;
