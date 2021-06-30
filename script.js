@@ -9,6 +9,7 @@ var bm = document.getElementById('b_minutes');
 var bs = document.getElementById('b_seconds');
 
 var startTimer;
+var aux = true;
 
 var final = new Audio("./audios/audio_final.mp3");
 var volta = new Audio("./audios/audio_volta.mp3");
@@ -27,6 +28,7 @@ reset.addEventListener('click', function () {
     bm.innerText = 5;
     bs.innerText = "00";
 
+    aux = true;
     stopInterval()
     startTimer = undefined;
 })
@@ -45,7 +47,10 @@ function timer() {
     }
 
     if (wm.innerText == 0 && ws.innerText == 0) {
-        final.play()
+        if (aux) {
+            final.play()
+            aux = false;
+        }
         if (bs.innerText != 0) {
             bs.innerText--;
         } else if (bm.innerText != 0 && bs.innerText == 0) {
@@ -60,6 +65,8 @@ function timer() {
         ws.innerText = "00";
         bm.innerText = 5;
         bs.innerText = "00";
+
+        aux = true;
     }
 }
 
