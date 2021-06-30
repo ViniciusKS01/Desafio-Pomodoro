@@ -32,3 +32,7 @@ stop.addEventListener('click', function () {
     stopInterval()
     startTimer = undefined;
 })
+
+function stopInterval() {
+    clearInterval(startTimer);
+}
