@@ -29,6 +29,7 @@ reset.addEventListener('click', function () {
     bs.innerText = "00";
 
     aux = true;
+    document.getElementById('counter').innerText = 0;
     stopInterval()
     startTimer = undefined;
 })
@@ -67,6 +68,7 @@ function timer() {
         bs.innerText = "00";
 
         aux = true;
+        document.getElementById('counter').innerText++;
     }
 }
 
