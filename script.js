@@ -27,3 +27,8 @@ reset.addEventListener('click', function () {
     stopInterval()
     startTimer = undefined;
 })
+
+stop.addEventListener('click', function () {
+    stopInterval()
+    startTimer = undefined;
+})
