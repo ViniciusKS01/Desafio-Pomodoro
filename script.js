@@ -9,6 +9,7 @@ var bm = document.getElementById('b_minutes');
 var bs = document.getElementById('b_seconds');
 
 var startTimer;
+var ref;
 var aux = true;
 
 var final = new Audio("./audios/audio_final.mp3");
@@ -23,7 +24,7 @@ start.addEventListener('click', function () {
 })
 
 reset.addEventListener('click', function () {
-    wm.innerText = 25;
+    wm.innerText = ref;
     ws.innerText = "00";
     bm.innerText = 5;
     bs.innerText = "00";
@@ -37,6 +38,24 @@ reset.addEventListener('click', function () {
 stop.addEventListener('click', function () {
     stopInterval()
     startTimer = undefined;
+})
+
+plus.addEventListener('click', function() {
+    if (startTimer === undefined) {
+        wm.innerText++;
+        ref = wm.innerText;
+    } else {
+        alert("O cronômetro já está funcionando");
+    }
+})
+
+less.addEventListener('click', function() {
+    if (startTimer === undefined) {
+        wm.innerText--;
+        ref = wm.innerText;
+    } else {
+        alert("O cronômetro já está funcionando");
+    }
 })
 
 function timer() {
@@ -62,7 +81,7 @@ function timer() {
 
     if (wm.innerText == 0 && ws.innerText == 0 && bm.innerText == 0 && bs.innerText == 0) {
         volta.play()
-        wm.innerText = 25;
+        wm.innerText = ref;
         ws.innerText = "00";
         bm.innerText = 5;
         bs.innerText = "00";
