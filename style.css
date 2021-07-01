@@ -80,3 +80,11 @@ p {
 #stop {
     grid-area: 3 / 4 / 3 / 4;
 }
+
+#plus {
+    grid-area: 3 / 1 / 3 / 1;
+}
+
+#less {
+    grid-area: 3 / 5 / 3 / 5;
+}
