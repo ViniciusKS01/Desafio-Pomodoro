@@ -1,6 +1,8 @@
 var start = document.getElementById('start');
 var stop = document.getElementById('stop');
 var reset = document.getElementById('reset');
+var plus = document.getElementById('plus');
+var less = document.getElementById('less');
 
 var wm = document.getElementById('w_minutes');
 var ws = document.getElementById('w_seconds');
@@ -51,6 +53,10 @@ plus.addEventListener('click', function() {
 
 less.addEventListener('click', function() {
     if (startTimer === undefined) {
+        if (wm.innerText == 1) {
+            alert("Valor mínimo atingido");
+            wm.innerText++;
+        }
         wm.innerText--;
         ref = wm.innerText;
     } else {
