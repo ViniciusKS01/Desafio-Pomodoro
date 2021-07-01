@@ -10,8 +10,11 @@ var ws = document.getElementById('w_seconds');
 var bm = document.getElementById('b_minutes');
 var bs = document.getElementById('b_seconds');
 
+var counter = document.getElementById('counter');
+
 var startTimer;
-var ref;
+var ref = 25;
+var count_bonus = 4;
 var aux = true;
 
 var final = new Audio("./audios/audio_final.mp3");
@@ -32,7 +35,7 @@ reset.addEventListener('click', function () {
     bs.innerText = "00";
 
     aux = true;
-    document.getElementById('counter').innerText = 0;
+
     stopInterval()
     startTimer = undefined;
 })
@@ -59,6 +62,18 @@ less.addEventListener('click', function() {
         }
         wm.innerText--;
         ref = wm.innerText;
+    } else {
+        alert("O cronômetro já está funcionando");
+    }
+})
+
+bonus.addEventListener('click', function () {
+    if (startTimer === undefined) {
+        if (counter.innerText != count_bonus - 4) {
+            alert("Atinja o ciclo igual a " + count_bonus);
+        } else {
+            bm.innerText = 10;
+        }
     } else {
         alert("O cronômetro já está funcionando");
     }
@@ -93,7 +108,12 @@ function timer() {
         bs.innerText = "00";
 
         aux = true;
-        document.getElementById('counter').innerText++;
+
+        counter.innerText++;
+        if (counter.innerText == count_bonus) {
+            alert("Parabéns pelo esforço. \nPause e aperte aperta o botão bônus para ganhar 10 minutos de descanso.");
+            count_bonus = count_bonus + 4;
+        }
     }
 }
 
