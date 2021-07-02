@@ -47,6 +47,10 @@ stop.addEventListener('click', function () {
 
 plus.addEventListener('click', function () {
     if (startTimer === undefined && wm.innerText == ref) {
+        if (wm.innerText == 1435) {
+            alert("Valor máximo atingido");
+            wm.innerText--;
+        }
         wm.innerText++;
         ref = wm.innerText;
     } else {
