@@ -46,7 +46,7 @@ stop.addEventListener('click', function () {
 })
 
 plus.addEventListener('click', function () {
-    if (startTimer === undefined) {
+    if (startTimer === undefined && wm.innerText == ref) {
         wm.innerText++;
         ref = wm.innerText;
     } else {
@@ -55,7 +55,7 @@ plus.addEventListener('click', function () {
 })
 
 less.addEventListener('click', function () {
-    if (startTimer === undefined) {
+    if (startTimer === undefined && wm.innerText == ref) {
         if (wm.innerText == 1) {
             alert("Valor mínimo atingido");
             wm.innerText++;
