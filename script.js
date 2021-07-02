@@ -69,11 +69,11 @@ less.addEventListener('click', function () {
 
 bonus.addEventListener('click', function () {
     if (startTimer === undefined) {
-        if (counter.innerText == count_bonus) {
-            bm.innerText = 10;
-            count_bonus = count_bonus + 4;
+        if (counter.innerText != count_bonus || wm.innerText == 0 && ws.innerText == 0) {
+            alert("A cada 4 ciclos você poderá receber um bônus"); 
         } else {
-            alert("A cada 4 ciclos você poderá receber um bônus");            
+            bm.innerText = 10;
+            count_bonus = count_bonus + 4;           
         }
     } else {
         alert("O cronômetro já está funcionando");
