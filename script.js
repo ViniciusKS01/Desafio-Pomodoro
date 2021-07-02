@@ -69,10 +69,11 @@ less.addEventListener('click', function () {
 
 bonus.addEventListener('click', function () {
     if (startTimer === undefined) {
-        if (counter.innerText != count_bonus || wm.innerText == 0 && ws.innerText == 0) {
-            alert("A cada 4 ciclos você poderá receber um bônus"); 
+        if (counter.innerText != count_bonus || bm.innerText == 4 && bs.innerText < 50) {
+            alert("A cada 4 pomodoros você poderá receber um bônus"); 
         } else {
             bm.innerText = 10;
+            bs.innerText = "00";
             count_bonus = count_bonus + 4;           
         }
     } else {
@@ -95,6 +96,14 @@ function timer() {
                 body: "Momento de descansar",
                 icon: './icon/relogio.png'
             });
+            counter.innerText++;
+            if (counter.innerText == count_bonus) {
+                alert("Parabéns pelo esforço. \nPause e aperte aperta o botão bônus para ganhar 10 minutos de descanso. \nDisponível nos próximos 10 segundos.");
+            }
+    
+            if (counter.innerText > count_bonus) {
+                count_bonus = count_bonus + 4;
+            }
             aux = false;
         }
         if (bs.innerText != 0) {
@@ -117,15 +126,6 @@ function timer() {
         bs.innerText = "00";
 
         aux = true;
-
-        counter.innerText++;
-        if (counter.innerText == count_bonus) {
-            alert("Parabéns pelo esforço. \nPause e aperte aperta o botão bônus para ganhar 10 minutos de descanso.");
-        }
-
-        if (counter.innerText > count_bonus) {
-            count_bonus = count_bonus + 4;
-        }
     }
 }
 
