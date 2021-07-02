@@ -45,7 +45,7 @@ stop.addEventListener('click', function () {
     startTimer = undefined;
 })
 
-plus.addEventListener('click', function () {
+plus.addEventListener('click', function() {
     if (startTimer === undefined) {
         wm.innerText++;
         ref = wm.innerText;
@@ -54,7 +54,7 @@ plus.addEventListener('click', function () {
     }
 })
 
-less.addEventListener('click', function () {
+less.addEventListener('click', function() {
     if (startTimer === undefined) {
         if (wm.innerText == 1) {
             alert("Valor mínimo atingido");
@@ -69,11 +69,10 @@ less.addEventListener('click', function () {
 
 bonus.addEventListener('click', function () {
     if (startTimer === undefined) {
-        if (counter.innerText == count_bonus) {
-            bm.innerText = 10;
-            count_bonus = count_bonus + 4;
+        if (counter.innerText != count_bonus - 4) {
+            alert("Atinja o ciclo igual a " + count_bonus);
         } else {
-            alert("A cada 4 ciclos você poderá receber um bônus");            
+            bm.innerText = 10;
         }
     } else {
         alert("O cronômetro já está funcionando");
@@ -91,10 +90,6 @@ function timer() {
     if (wm.innerText == 0 && ws.innerText == 0) {
         if (aux) {
             final.play()
-            Push.create('ATENÇÃO', {
-                body: "Momento de descansar",
-                icon: './icon/relogio.png'
-            });
             aux = false;
         }
         if (bs.innerText != 0) {
@@ -107,10 +102,6 @@ function timer() {
 
     if (wm.innerText == 0 && ws.innerText == 0 && bm.innerText == 0 && bs.innerText == 0) {
         volta.play()
-        Push.create('ATENÇÃO', {
-            body: "Momento de trabalhar",
-            icon: './icon/relogio.png'
-        });
         wm.innerText = ref;
         ws.innerText = "00";
         bm.innerText = 5;
@@ -121,9 +112,6 @@ function timer() {
         counter.innerText++;
         if (counter.innerText == count_bonus) {
             alert("Parabéns pelo esforço. \nPause e aperte aperta o botão bônus para ganhar 10 minutos de descanso.");
-        }
-
-        if (counter.innerText > count_bonus) {
             count_bonus = count_bonus + 4;
         }
     }
