@@ -73,12 +73,12 @@ less.addEventListener('click', function () {
 
 bonus.addEventListener('click', function () {
     if (startTimer === undefined) {
-        if (counter.innerText != count_bonus || bm.innerText == 4 && bs.innerText < 50) {
-            alert("A cada 4 pomodoros você poderá receber um bônus"); 
-        } else {
+        if (counter.innerText == count_bonus && bm.innerText == 4 && bs.innerText > 49) {
             bm.innerText = 10;
             bs.innerText = "00";
-            count_bonus = count_bonus + 4;           
+            count_bonus = count_bonus + 4;
+        } else {
+            alert("A cada 4 pomodoros você poderá receber um bônus");
         }
     } else {
         alert("O cronômetro já está funcionando");
@@ -104,7 +104,7 @@ function timer() {
             if (counter.innerText == count_bonus) {
                 alert("Parabéns pelo esforço. \nPause e aperte aperta o botão bônus para ganhar 10 minutos de descanso. \nDisponível nos próximos 10 segundos.");
             }
-    
+
             if (counter.innerText > count_bonus) {
                 count_bonus = count_bonus + 4;
             }
